@@ -9,7 +9,7 @@ import sys
 import urllib.error
 import urllib.request
 
-GITHUB_REPO = "jmusick/HiddenLodgeDesktop"
+GITHUB_REPO = "jmusick/hidden-lodge-desktop"
 RELEASES_API = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 RELEASES_PAGE = f"https://github.com/{GITHUB_REPO}/releases"
 VERSION_FILE_NAME = "version.txt"

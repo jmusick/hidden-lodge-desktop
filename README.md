@@ -1,5 +1,10 @@
 # HiddenLodge Desktop Bridge
 
+Repository: [jmusick/hidden-lodge-desktop](https://github.com/jmusick/hidden-lodge-desktop). Local folder: `C:/Users/JD/source/hidden-lodge-desktop`.
+
+This README owns setup and usage; [AGENTS.md](AGENTS.md) owns coding conventions. Companion projects: [website](https://github.com/jmusick/hidden-lodge-website/blob/main/README.md) · [addon](https://github.com/jmusick/hidden-lodge-addon/blob/master/README.md) · [sim](https://github.com/jmusick/hidden-lodge-sim/blob/master/README.md). Creative masters and provenance live in `C:/Users/JD/projects/hidden-lodge/README.md`. The Obsidian project note links to these files; implementation and operational instructions belong here.
+
+
 Windows desktop companion for the HiddenLodge website and WoW addon data sync.
 
 The app fetches guild preparedness, Great Vault score, and droptimizer upgrade data from the website API and writes it into your WoW SavedVariables file (`HiddenLodge.lua`) so the addon can load the latest data in-game. (Attendance and raid-signup sync are currently disabled since the website isn't handling those at this time.)
@@ -131,7 +136,7 @@ The app checks the latest GitHub release and shows an `Open Releases` action whe
 - New version available:
   - The app shows an in-app update notice with an `Open Releases` button.
   - Click it to open GitHub Releases and download the latest `HiddenLodgeDesktop.exe` manually:
-    - https://github.com/jmusick/HiddenLodgeDesktop/releases
+    - https://github.com/jmusick/hidden-lodge-desktop/releases
 
 ## Development Notes
 

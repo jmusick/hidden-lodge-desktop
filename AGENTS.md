@@ -49,3 +49,7 @@ python main.py
 For anything touching Lua read/write or the sync flow, prefer testing against a real (or copied)
 `HiddenLodge.lua` / `RCLootCouncil.lua` rather than assumptions about their format — inspect
 `bridge/lua_reader.py` and `bridge/lua_writer.py` for the exact table shape expected.
+
+## Repository and documentation
+
+Repository/source folder: `hidden-lodge-desktop`. Companion setup is in [the website README](https://github.com/jmusick/hidden-lodge-website/blob/main/README.md). Keep coding and operational instructions in repository Markdown; the Obsidian project note is an index plus personal context. Existing WoW addon folders, SavedVariables identifiers, executable names, and API headers are runtime contracts and retain their original names.
