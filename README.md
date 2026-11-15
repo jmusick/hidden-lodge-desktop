@@ -2,7 +2,7 @@
 
 Repository: [jmusick/hidden-lodge-desktop](https://github.com/jmusick/hidden-lodge-desktop). Local folder: `C:/Users/JD/source/hidden-lodge-desktop`.
 
-This README owns setup and usage; [AGENTS.md](AGENTS.md) owns coding conventions. Companion projects: [website](https://github.com/jmusick/hidden-lodge-website/blob/main/README.md) · [addon](https://github.com/jmusick/hidden-lodge-addon/blob/master/README.md) · [sim](https://github.com/jmusick/hidden-lodge-sim/blob/master/README.md). Creative masters and provenance live in `C:/Users/JD/projects/hidden-lodge/README.md`. The Obsidian project note links to these files; implementation and operational instructions belong here.
+This README owns setup and usage; [AGENTS.md](AGENTS.md) owns coding conventions. Companion projects: [website](https://github.com/jmusick/hidden-lodge-website/blob/main/README.md) · [addon](https://github.com/jmusick/hidden-lodge-addon/blob/master/README.md) · [sim](https://github.com/jmusick/hidden-lodge-sim/blob/main/README.md). Creative masters and provenance live in `C:/Users/JD/projects/hidden-lodge/README.md`. The Obsidian project note links to these files; implementation and operational instructions belong here.
 
 
 Windows desktop companion for the HiddenLodge website and WoW addon data sync.
@@ -109,8 +109,10 @@ The script bundles:
 GitHub Actions release workflow is in `.github/workflows/release.yml`.
 
 - Trigger: push a tag like `v1.2.3`
-- CI builds `HiddenLodgeDesktop.exe`
-- CI publishes a GitHub release with the executable attached
+- CI builds `HiddenLodgeDesktop.exe` on `windows-latest`
+- CI publishes a GitHub release with the executable attached, using the shared [jmusick/ci](https://github.com/jmusick/ci) release workflow
+
+`.github/workflows/ci.yml` runs the shared jmusick/ci baseline (secret scan) on pull requests and pushes; its **CI gate** job is the one check to require. Dependabot (`.github/dependabot.yml`) keeps pip dependencies and the SHA-pinned actions current.
 
 The app checks the latest GitHub release and shows an `Open Releases` action when a newer version is available.
 

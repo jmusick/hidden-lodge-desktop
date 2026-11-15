@@ -35,7 +35,8 @@ Packaged as a standalone exe via PyInstaller (`build_exe.ps1` / `HiddenLodgeDesk
 
 - Version lives in `version.txt` and is bumped via the `patch`/`minor` skills, which tag, commit,
   and push. Releases are cut by pushing a `vX.Y.Z` tag; CI (`.github/workflows/release.yml`) builds
-  and publishes the exe.
+  the exe and publishes it via the shared jmusick/ci release workflow. `.github/workflows/ci.yml` runs the
+  shared baseline on PRs; actions are pinned by commit SHA (Dependabot keeps them current).
 - Don't hand-edit `version.txt` outside of that flow unless asked.
 
 ## Testing changes

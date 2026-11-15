@@ -1,22 +1,27 @@
-name: Build and Release
+# Builds the Windows exe for a pushed vX.Y.Z tag and publishes it through the shared jmusick/ci
+# release workflow.
+name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    tags: ['v*']
+
+permissions:
+  contents: read
 
 jobs:
   build:
+    name: Build
     runs-on: windows-latest
-    permissions:
-      contents: write
-
+    timeout-minutes: 20
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
 
@@ -43,8 +48,19 @@ jobs:
             --add-data "version.txt;." `
             main.py
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v3
+      - name: Upload release files
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          files: dist/HiddenLodgeDesktop.exe
-          generate_release_notes: true
+          name: release-files
+          path: dist/HiddenLodgeDesktop.exe
+          if-no-files-found: error
+          retention-days: 1
+
+  release:
+    name: Release
+    needs: build
+    permissions:
+      contents: write
+    uses: jmusick/ci/.github/workflows/release.yml@a8ac9c292577382c63e5a38af58d38a4cd6f8504 # v0.3.0
+    with:
+      artifact-name: release-files
